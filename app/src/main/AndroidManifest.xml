@@ -13,6 +13,21 @@
         android:theme="@style/Theme.A2"
         tools:targetApi="31">
         <activity
+            android:name=".CondoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ApartmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TownHouseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SemiDetachedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetachedHouseActivity"
+            android:exported="false" />
+        <activity
             android:name=".SelectHomeTypeActivity"
             android:exported="false" />
         <activity
