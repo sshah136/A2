@@ -7,4 +7,57 @@
     android:layout_height="match_parent"
     tools:context=".SelectHomeTypeActivity">
 
+    <ImageView
+        android:id="@+id/imgApt"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/appartment"
+        app:layout_constraintEnd_toStartOf="@+id/imgFullHome"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgFullHome"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgApt"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgSemiHome"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/semihome"
+        app:layout_constraintEnd_toStartOf="@+id/imgCondo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgApt" />
+
+    <ImageView
+        android:id="@+id/imgCondo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/condominium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgSemiHome"
+        app:layout_constraintTop_toBottomOf="@+id/imgFullHome" />
+
+    <ImageView
+        android:id="@+id/imgTown"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/townhouse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgSemiHome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgSemiHome" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
