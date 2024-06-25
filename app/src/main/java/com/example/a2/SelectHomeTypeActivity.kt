@@ -30,23 +30,18 @@ class SelectHomeTypeActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.miHome -> {
                 startActivity(Intent(this, DetachedHouseActivity::class.java))
-                true
             }
             R.id.miSemiHome -> {
                 startActivity(Intent(this, SemiDetachedActivity::class.java))
-                true
             }
             R.id.miCondo -> {
                 startActivity(Intent(this, CondoActivity::class.java))
-                true
             }
             R.id.miApt -> {
                 startActivity(Intent(this, ApartmentActivity::class.java))
-                true
             }
             R.id.miTownHome -> {
                 startActivity(Intent(this, TownHouseActivity::class.java))
-                true
             }
         }
         return true
