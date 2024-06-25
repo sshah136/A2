@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">A2</string>
     <string name="btnName">Enter</string>
+    <string name="apartment">Apartment</string>
+    <string name="detached_home">Detached Home</string>
+    <string name="semi_detached_home">Semi-Detached Home</string>
+    <string name="condominium">Condominium</string>
+    <string name="town_house">Town House</string>
 </resources>
