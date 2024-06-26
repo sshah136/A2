@@ -7,13 +7,22 @@
     android:layout_height="match_parent"
     tools:context=".ApartmentActivity">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/apartment_listings"
+        android:textSize="30sp"
+        android:textColor="@color/black"
+        android:id="@+id/tvApartment"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/tvApartment"
+            android:paddingTop="48dp">
 
             <LinearLayout
                 android:id="@+id/llApt"
@@ -24,15 +33,22 @@
         </ScrollView>
 
         <Button
-            android:id="@+id/btnNextDisplay"
+            android:id="@+id/btnAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
+            app:layout_constraintBottom_toTopOf="@id/btnCheckOut"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/add_to_cart" />
+
+        <Button
+            android:id="@+id/btnCheckOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="24dp"
-            android:text="Add To Cart"/>
+            android:text="@string/btn_checkout"/>
 
-    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
