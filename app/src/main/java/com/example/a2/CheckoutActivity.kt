@@ -1,8 +1,10 @@
 package com.example.a2
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -49,11 +51,29 @@ class CheckoutActivity : AppCompatActivity() {
             tvPrice.text = listing.price
 
             radioButton.setOnClickListener {
+                // Clear previously selected RadioButton
                 selectedRadioButton?.isChecked = false
+                // Set current RadioButton as selected
                 radioButton.isChecked = true
                 selectedRadioButton = radioButton
             }
 
+
+            val btnPayment = findViewById<Button>(R.id.btnPayment)
+            btnPayment.setOnClickListener {
+                val selectedListing = selectedListings.find { it.title == listing.title }
+
+                val checkOutPref = getSharedPreferences("CheckOutPref", Context.MODE_PRIVATE)
+                val editor = checkOutPref.edit()
+                val gson = Gson()
+                val listingJson = gson.toJson(selectedListing)
+
+                editor.putString("selected_listing", listingJson)
+                editor.apply()
+
+                intent = Intent(this, PaymentActivity::class.java)
+                startActivity(intent)
+            }
 
             llCheckOut.addView(view)
         }
