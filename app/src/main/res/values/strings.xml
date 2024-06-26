@@ -12,4 +12,7 @@
     <string name="apartment_listings">Apartment Listings</string>
     <string name="place_order">Place Order</string>
     <string name="order_details">Order Details:</string>
+    <string name="condominium_listings">Condominium listings</string>
+    <string name="detached_house_listings">Detached House Listings</string>
+    <string name="town_house_listings">Town House Listings</string>
 </resources>
