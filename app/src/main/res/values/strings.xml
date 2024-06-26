@@ -15,4 +15,10 @@
     <string name="condominium_listings">Condominium listings</string>
     <string name="detached_house_listings">Detached House Listings</string>
     <string name="town_house_listings">Town House Listings</string>
+    <string name="payment_title">Enter Payment Details \n(Credit Card/Debit Card)</string>
+    <string name="card_number">Card Number</string>
+    <string name="name_on_the_card">Name on the Card</string>
+    <string name="expiry_date">Expiry Date (MM/YY)</string>
+    <string name="enter_cvv">Enter CVV</string>
+    <string name="address">Address</string>
 </resources>
