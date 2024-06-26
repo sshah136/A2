@@ -11,4 +11,5 @@
     <string name="checkout_title">Checkout</string>
     <string name="apartment_listings">Apartment Listings</string>
     <string name="place_order">Place Order</string>
+    <string name="order_details">Order Details:</string>
 </resources>
