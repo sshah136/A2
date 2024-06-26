@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -13,6 +14,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.gson.Gson
 
 class ApartmentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,6 +48,36 @@ class ApartmentActivity : AppCompatActivity() {
             tvPrice.text = listing.price
 
             linearLayoutHomes.addView(view)
+        }
+
+        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_APPEND)
+        val editor = sharedPreferences.edit()
+        val btnAdd = findViewById<Button>(R.id.btnAdd)
+        val btnCheckOut = findViewById<Button>(R.id.btnCheckOut)
+
+        btnAdd.setOnClickListener {
+            val selectedListings = mutableListOf<Listing>()
+
+            for (i in 0 until linearLayoutHomes.childCount) {
+                val view = linearLayoutHomes.getChildAt(i)
+                val checkBox = view.findViewById<CheckBox>(R.id.checkBox)
+
+                if (checkBox.isChecked) {
+                    val listing = listings[i]
+                    selectedListings.add(listing)
+                }
+            }
+
+            val gson = Gson()
+            val listingsJson = gson.toJson(selectedListings)
+
+            editor.putString("selected_listings", listingsJson)
+            editor.apply()
+        }
+
+        btnCheckOut.setOnClickListener {
+            intent = Intent(this, CheckoutActivity::class.java)
+            startActivity(intent)
         }
     }
 
