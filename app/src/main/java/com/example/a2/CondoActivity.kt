@@ -2,12 +2,19 @@ package com.example.a2
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.CheckBox
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.google.gson.Gson
 
 class CondoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,6 +25,59 @@ class CondoActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        //Populate linear layout with data
+        val listings = listOf<Listing>(
+            Listing("777 Oak St", "$200,000", R.drawable.condo1),
+            Listing("888 Pine St", "$180,000", R.drawable.condo2),
+            Listing("999 Elm St", "$220,000", R.drawable.condo3)
+        )
+        val linearLayoutHomes = findViewById<LinearLayout>(R.id.llCondo)
+
+        for (listing in listings) {
+            val view = LayoutInflater.from(this).inflate(R.layout.item_home, linearLayoutHomes, false)
+
+            val imageView = view.findViewById<ImageView>(R.id.ivHome)
+            val tvAddress = view.findViewById<TextView>(R.id.tvAddress)
+            val tvPrice = view.findViewById<TextView>(R.id.tvPrice)
+
+            imageView.setImageResource(listing.image)
+            tvAddress.text = listing.title
+            tvPrice.text = listing.price
+
+            linearLayoutHomes.addView(view)
+        }
+
+        // Saving selection under shared Preferences
+        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_APPEND)
+        val editor = sharedPreferences.edit()
+        val btnAdd = findViewById<Button>(R.id.btnAdd)
+        val btnCheckOut = findViewById<Button>(R.id.btnCheckOut)
+
+        btnAdd.setOnClickListener {
+            val selectedListings = mutableListOf<Listing>()
+
+            for (i in 0 until linearLayoutHomes.childCount) {
+                val view = linearLayoutHomes.getChildAt(i)
+                val checkBox = view.findViewById<CheckBox>(R.id.checkBox)
+
+                if (checkBox.isChecked) {
+                    val listing = listings[i]
+                    selectedListings.add(listing)
+                }
+            }
+
+            val gson = Gson()
+            val listingsJson = gson.toJson(selectedListings)
+
+            editor.putString("selected_listings", listingsJson)
+            editor.apply()
+        }
+
+        btnCheckOut.setOnClickListener {
+            intent = Intent(this, CheckoutActivity::class.java)
+            startActivity(intent)
         }
     }
 

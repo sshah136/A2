@@ -29,9 +29,9 @@ class ApartmentActivity : AppCompatActivity() {
 
         //Populate linear layout with data
         val listings = listOf<Listing>(
-            Listing("123 Main St", "$200,000", R.drawable.homepl),
-            Listing("456 Elm St", "$180,000", R.drawable.homepl),
-            Listing("789 Oak St", "$220,000", R.drawable.homepl)
+            Listing("123 Main St", "$200,000", R.drawable.apt1),
+            Listing("456 Elm St", "$180,000", R.drawable.apt2),
+            Listing("789 Oak St", "$220,000", R.drawable.apt3)
         )
         val linearLayoutHomes = findViewById<LinearLayout>(R.id.llApt)
 
@@ -49,6 +49,7 @@ class ApartmentActivity : AppCompatActivity() {
             linearLayoutHomes.addView(view)
         }
 
+        // Saving selection under shared Preferences
         val sharedPreferences = getSharedPreferences("MyPrefs", MODE_APPEND)
         val editor = sharedPreferences.edit()
         val btnAdd = findViewById<Button>(R.id.btnAdd)

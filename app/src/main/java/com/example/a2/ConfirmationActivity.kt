@@ -28,9 +28,9 @@ class ConfirmationActivity : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences("CheckOutPref", MODE_PRIVATE)
         val selectedListingJson = sharedPreferences.getString("selected_listing", null)
-        Log.d("ConfirmationActivity", "JSON from SharedPreferences: $selectedListingJson")
+        //Log.d("ConfirmationActivity", "JSON from SharedPreferences: $selectedListingJson")
         val selectedListing = Gson().fromJson(selectedListingJson, Listing::class.java)
-        Log.d("ConfirmationActivity", "JSON from SharedPreferences: $selectedListing")
+        //Log.d("ConfirmationActivity", "JSON from SharedPreferences: $selectedListing")
         val llOrderDetails = findViewById<LinearLayout>(R.id.llOrderDetails)
 
 
