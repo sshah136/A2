@@ -38,7 +38,6 @@ class ApartmentActivity : AppCompatActivity() {
         for (listing in listings) {
             val view = LayoutInflater.from(this).inflate(R.layout.item_home, linearLayoutHomes, false)
 
-            val checkBox = view.findViewById<CheckBox>(R.id.checkBox)
             val imageView = view.findViewById<ImageView>(R.id.ivHome)
             val tvAddress = view.findViewById<TextView>(R.id.tvAddress)
             val tvPrice = view.findViewById<TextView>(R.id.tvPrice)
