@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.RadioButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.gson.Gson
 
 class CheckoutActivity : AppCompatActivity() {
+    private var selectedRadioButton: RadioButton? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -37,6 +39,7 @@ class CheckoutActivity : AppCompatActivity() {
             val view = LayoutInflater.from(this).inflate(R.layout.item_home_checkout, llCheckOut, false)
 
             //val checkBox = view.findViewById<CheckBox>(R.id.checkBox)
+            val radioButton = view.findViewById<RadioButton>(R.id.rbCheckout)
             val imageView = view.findViewById<ImageView>(R.id.ivHome)
             val tvAddress = view.findViewById<TextView>(R.id.tvAddress)
             val tvPrice = view.findViewById<TextView>(R.id.tvPrice)
@@ -44,6 +47,13 @@ class CheckoutActivity : AppCompatActivity() {
             imageView.setImageResource(listing.image)
             tvAddress.text = listing.title
             tvPrice.text = listing.price
+
+            radioButton.setOnClickListener {
+                selectedRadioButton?.isChecked = false
+                radioButton.isChecked = true
+                selectedRadioButton = radioButton
+            }
+
 
             llCheckOut.addView(view)
         }
