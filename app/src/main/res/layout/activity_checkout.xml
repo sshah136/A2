@@ -29,8 +29,19 @@
             android:id="@+id/llCheckOut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical"
+            />
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/btnPayment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proceed to Payment"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
