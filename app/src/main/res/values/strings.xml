@@ -6,4 +6,8 @@
     <string name="semi_detached_home">Semi-Detached Home</string>
     <string name="condominium">Condominium</string>
     <string name="town_house">Town House</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="btn_checkout">Checkout</string>
+    <string name="checkout_title">Checkout</string>
+    <string name="apartment_listings">Apartment Listings</string>
 </resources>
